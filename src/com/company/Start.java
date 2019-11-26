@@ -2,25 +2,26 @@ package com.company;
 
 import java.util.function.Function;
 
-import static com.company.TemperatureScale.*;
-
 public class Start {
-
     public static void main(String[] args) {
 
-        Temperature t1 = new Temperature();
-        t1.setCelsius(30);
-        System.out.println(t1.getKelvin());
+        ArrayCollection c1 = new ArrayCollection();
+        ArrayCollection c2 = new ArrayCollection();
 
-        Temperature t3 = new Temperature();
-        t3.setKelvin(30);
-        System.out.println(t3.getCelsius());
+        c1.add("S1");
+        c1.add("S2");
+        c2.add("C1");
+        /*c1.getData()[0] = "S1";
+        c1.getData()[1] = "S2";
+        c1.setSize(2);
 
-        Temperature t2 = new Temperature();
-        t2.set(KELVIN, 30);
-        System.out.println(t2.getCelsius());
+        c2.getData()[0] = "C1";
+        c2.setSize(1);*/
 
-        System.out.println(t1.greater(t2));
+        Mergable c3 = c1.merge(c2);
+
+        Mergable c4 = c3.merge(c1);
+
     }
 
 
@@ -43,13 +44,13 @@ public class Start {
 
         testFailuresNr += test(StrUtil::capitalizeEachFirst, testCases2);
         if (testFailuresNr != 0) {
-            System.out.println("Error, " + Integer.toString(testFailuresNr) + " tests failed");
+            System.out.println("Error, " + testFailuresNr + " tests failed");
         } else {
             System.out.println("All tests passed");
         }
     }
 
-    static int test(Function<String, String> function, String[][]testCases) {
+    static int test(Function<String, String> function, String[][] testCases) {
         int testFailuresNr = 0;
         for (String[] testCase : testCases) {
             String result = function.apply(testCase[0]);
@@ -80,15 +81,15 @@ public class Start {
             long start = System.currentTimeMillis();
             Fibonacci.get(25 + i);
             long end = System.currentTimeMillis();
-            System.out.println("Was calculating " + Long.toString(end - start) + "ms for " + Integer.toString(25 + i));
+            System.out.println("Was calculating " + (end - start) + "ms for " + (25 + i));
         }
     }
 
     public static void testEuklides() {
-        if (Euklides.gcd(7, 5 ) != 1) {
+        if (Euklides.gcd(7, 5) != 1) {
             System.out.println("Invalid result for 7 and 5");
         }
-        if (Euklides.gcd(4, 16 ) != 4) {
+        if (Euklides.gcd(4, 16) != 4) {
             System.out.println("Invalid result for 4 and 16");
         }
     }

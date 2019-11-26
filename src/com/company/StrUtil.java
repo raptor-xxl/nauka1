@@ -15,7 +15,7 @@ public class StrUtil {
         String[] parts = input.split(" ");
         StringBuilder sb = new StringBuilder();
         sb.append(capitalizeFirst(parts[0]));
-        for (int i = 1; i < parts.length; i++){
+        for (int i = 1; i < parts.length; i++) {
             sb.append(" ").append(capitalizeFirst(parts[i]));
         }
         return sb.toString();
