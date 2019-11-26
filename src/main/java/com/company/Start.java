@@ -8,7 +8,7 @@ public class Start {
         ArrayCollection c1 = new ArrayCollection();
         ArrayCollection c2 = new ArrayCollection();
 
-        c1.add("S1");
+        c1.add("S1".toUpperCase());
         c1.add("S2");
         c2.add("C1");
         /*c1.getData()[0] = "S1";
