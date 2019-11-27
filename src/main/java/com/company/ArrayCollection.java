@@ -9,27 +9,42 @@ public class ArrayCollection implements Collection, Mergable {
         data = new Object[256];
     }
 
+    @Override
     public boolean add(Object o) {
-        return false;
-    }
-
-    public boolean delete(Object o) {
-        return false;
-    }
-
-    public boolean isPresent(Object o) {
-        if (o == null) {
+        if (o == null || size == data.length) {
             return false;
+        }
+        data[size++] = o;
+        return true;
+    }
+
+    private int index(Object o) {
+        if (o == null) {
+            return -1;
         }
 
         for (int i = 0; i < size; i++) {
             if (o.equals(data[i])) {
-                return true;
+                return i;
             }
+        }
+        return -1;
+    }
+
+    @Override
+    public boolean delete(Object o) {
+        if (index(o) == 1) {
+
         }
         return false;
     }
 
+    @Override
+    public boolean isPresent(Object o) {
+        return index(o) != -1;
+    }
+
+    @Override
     public Mergable merge(Mergable m) {
         if (m == null) {
             return this;
