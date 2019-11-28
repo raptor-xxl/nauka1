@@ -1,7 +1,6 @@
 package com.company;
 
 public class Temperature {
-
     private static final double ZERO_CELSIUS_IN_KELVIN = 273.16;
     private double c;
 
@@ -10,7 +9,7 @@ public class Temperature {
     }
 
     public void setCelsius(double t) {
-        c = t;
+        this.c = t;
     }
 
     public double getKelvin() {
@@ -39,14 +38,17 @@ public class Temperature {
     }
 
     public boolean equals(Temperature obj) {
-        return false;
+        if (null == obj) {
+            return false;
+        }
+        return this.c == obj.c;
     }
 
     public boolean less(Temperature t) {
-        return false;
+        return this.c < t.c;
     }
 
     public boolean greater(Temperature t) {
-        return false;
+        return c > t.c;
     }
 }
