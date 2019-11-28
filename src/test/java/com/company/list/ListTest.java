@@ -1,56 +1,47 @@
-package com.company;
+package com.company.list;
 
+import com.company.Mergable;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
-public class ArrayCollectionTest {
-
+public class ListTest {
     @Test
     public void shouldReturnFalsePresentWhenNull() {
-        ArrayCollection a = new ArrayCollection();
+        List a = new List();
         assertFalse(a.isPresent(null));
     }
 
     @Test
     public void shouldReturnFalseWhenNotPresent() {
-        ArrayCollection a = new ArrayCollection();
+        List a = new List();
         assertFalse(a.isPresent("A"));
     }
 
     @Test
     public void shouldReturnTrueWhenPresent() {
-        ArrayCollection a = new ArrayCollection();
+        List a = new List();
         assertTrue(a.add("A"));
         assertTrue(a.isPresent("A"));
     }
 
     @Test
     public void shouldHaveSize1WhenAdded1Element() {
-        ArrayCollection a = new ArrayCollection();
+        List a = new List();
         assertTrue(a.add("Str"));
         assertEquals(1, a.getSize());
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void shouldHaveSize0WhenAddedNull() {
-        ArrayCollection a = new ArrayCollection();
+        List a = new List();
         a.add(null);
     }
 
     @Test
-    public void shouldNotAddNewElementWhenArrayIsFull() {
-        ArrayCollection a = new ArrayCollection();
-        for (int i = 0; i < 256; i++) {
-            assertTrue(a.add("A"));
-        }
-        assertFalse(a.add("A"));
-        assertEquals(256, a.getSize());
-    }
-
-    @Test
     public void shouldBeEmptyWhenDeleted() {
-        ArrayCollection a = new ArrayCollection();
+        List a = new List();
         assertTrue(a.add("A"));
         assertTrue(a.delete("A"));
         assertEquals(0, a.getSize());
@@ -58,7 +49,7 @@ public class ArrayCollectionTest {
 
     @Test
     public void shouldNotDeleteWhenNull() {
-        ArrayCollection a = new ArrayCollection();
+        List a = new List();
         assertTrue(a.add("A"));
         assertFalse(a.delete(null));
         assertEquals(1, a.getSize());
@@ -66,7 +57,7 @@ public class ArrayCollectionTest {
 
     @Test
     public void shouldNotDeleteWhenDeletedElementNotPresent() {
-        ArrayCollection a = new ArrayCollection();
+        List a = new List();
         assertTrue(a.add("A"));
         assertFalse(a.delete("B"));
         assertEquals(1, a.getSize());
@@ -74,7 +65,7 @@ public class ArrayCollectionTest {
 
     @Test
     public void shouldDeleteOnly1InstanceWhenMultiplePresent() {
-        ArrayCollection a = new ArrayCollection();
+        List a = new List();
         assertTrue(a.add("A"));
         assertTrue(a.add("A"));
         assertTrue(a.add("A"));
@@ -84,7 +75,7 @@ public class ArrayCollectionTest {
 
     @Test
     public void shouldDeleteOnlyWhenPresent() {
-        ArrayCollection a = new ArrayCollection();
+        List a = new List();
         assertTrue(a.add("A"));
         assertTrue(a.add("B"));
         assertTrue(a.delete("A"));
@@ -94,7 +85,7 @@ public class ArrayCollectionTest {
 
     @Test
     public void shouldHaveCorrectDataWhenManyOperations() {
-        ArrayCollection a = new ArrayCollection();
+        List a = new List();
         assertTrue(a.add("A"));
         assertFalse(a.delete("B"));
         assertTrue(a.add("B"));
@@ -110,26 +101,26 @@ public class ArrayCollectionTest {
 
     @Test
     public void shouldReturnFalseWhenNull() {
-        ArrayCollection a = new ArrayCollection();
+        List a = new List();
         assertFalse(a.deleteAll(null));
     }
 
     @Test
     public void shouldReturnFalseWhenElementNotPresent() {
-        ArrayCollection a = new ArrayCollection();
+        List a = new List();
         assertFalse(a.deleteAll("A"));
     }
 
     @Test
     public void shouldReturnTrueWhenElementPresent() {
-        ArrayCollection a = new ArrayCollection();
+        List a = new List();
         assertTrue(a.add("A"));
         assertTrue(a.deleteAll("A"));
     }
 
     @Test
     public void shouldDeleteAllWhenMultipleInstancePresent() {
-        ArrayCollection a = new ArrayCollection();
+        List a = new List();
         assertTrue(a.add("Adam"));
         assertTrue(a.add("Adam"));
         assertTrue(a.add("Adam"));
@@ -146,8 +137,8 @@ public class ArrayCollectionTest {
 
     @Test
     public void shouldBeSameWhenMergingWithEmpty() {
-        ArrayCollection a = new ArrayCollection();
-        ArrayCollection b = new ArrayCollection();
+        List a = new List();
+        List b = new List();
         assertTrue(a.add("A"));
         Mergable c = a.merge(b);
         assertEquals(1, c.getSize());
@@ -156,8 +147,8 @@ public class ArrayCollectionTest {
 
     @Test
     public void shouldMergeWhenNotEmpty() {
-        ArrayCollection a = new ArrayCollection();
-        ArrayCollection b = new ArrayCollection();
+        List a = new List();
+        List b = new List();
         assertTrue(a.add("A"));
         assertTrue(a.add("B"));
         assertTrue(b.add("C"));

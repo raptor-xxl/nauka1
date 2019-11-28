@@ -1,29 +1,45 @@
 package com.company;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.function.Function;
 
 public class Start {
     public static void main(String[] args) {
+        String fileName = "/home/logad/IdeaProjects/file.txt";
+        try (FileWriter fileWriter = new FileWriter(fileName, true)) {
+            fileWriter.write("Some String");
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+/*
+        Double d = 5.0;
+        try {
 
-        ArrayCollection c1 = new ArrayCollection();
-        ArrayCollection c2 = new ArrayCollection();
-
-        c1.add("S1".toUpperCase());
-        c1.add("S2");
-        c2.add("C1");
-        /*c1.getData()[0] = "S1";
-        c1.getData()[1] = "S2";
-        c1.setSize(2);
-
-        c2.getData()[0] = "C1";
-        c2.setSize(1);*/
-
-        Mergable c3 = c1.merge(c2);
-
-        Mergable c4 = c3.merge(c1);
-
+            d = divide(2, 2);
+            System.out.println("Success");
+        } catch (Ex1 e) {
+            System.out.println("Ex1: " + e.getMessage());
+        } catch (Ex2 | Ex3 e) {
+            System.out.println("Ex2 or Ex3: " + e.getMessage());
+        }
+        System.out.println(d);*/
     }
 
+    public static double divide(int a, int b) throws Ex1, Ex2, Ex3 {
+        if (b == 0) {
+            throw new Ex1("Divide by 0");
+        }
+        if (a == 0) {
+            throw new Ex2("Invalid first argument");
+        }
+        if (a == 2) {
+            throw new Ex3("Invalid first argument");
+        }
+        return ((double)a) / b;
+    }
 
     public static void testStrings() {
         String[][] testCases = {

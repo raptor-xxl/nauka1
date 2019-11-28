@@ -11,7 +11,10 @@ public class ArrayCollection implements Collection, Mergable {
 
     @Override
     public boolean add(Object o) {
-        if (o == null || size == data.length) {
+        if (o == null) {
+            throw new IllegalArgumentException("Argument is null");
+        }
+        if (size == data.length) {
             return false;
         }
         data[size++] = o;
@@ -33,10 +36,24 @@ public class ArrayCollection implements Collection, Mergable {
 
     @Override
     public boolean delete(Object o) {
-        if (index(o) == 1) {
-
+        int c = index(o);
+        if (c == -1) {
+            return false;
         }
-        return false;
+        for (int i = c; i < size - 1; i++) {
+            data[i] = data[i + 1];
+        }
+        data[--size] = null;
+        return true;
+    }
+
+    @Override
+    public boolean deleteAll(Object o) {
+        boolean deletedAny = false;
+        while (delete(o)) {
+            deletedAny = true;
+        }
+        return deletedAny;
     }
 
     @Override
@@ -49,20 +66,24 @@ public class ArrayCollection implements Collection, Mergable {
         if (m == null) {
             return this;
         }
-        ArrayCollection ma;
-        if (m instanceof ArrayCollection) {
-            ma = (ArrayCollection) m;
-        } else {
-            return this;
-        }
+
         ArrayCollection result = new ArrayCollection();
-        result.size = this.size + ma.size;
+        result.size = this.size;
         System.arraycopy(this.data, 0, result.data, 0, this.size);
-        System.arraycopy(ma.data, 0, result.data, this.size, ma.size);
+        for (int i = 0; i < m.getSize(); ++i) {
+            result.add(m.get(i));
+        }
+
         return result;
     }
 
+    @Override
     public int getSize() {
         return size;
+    }
+
+    @Override
+    public Object get(int i) {
+        return data[i];
     }
 }
