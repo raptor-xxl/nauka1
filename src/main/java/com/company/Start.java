@@ -1,9 +1,7 @@
 package com.company;
 
-import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.function.Function;
 
 public class Start {
@@ -38,7 +36,7 @@ public class Start {
         if (a == 2) {
             throw new Ex3("Invalid first argument");
         }
-        return ((double)a) / b;
+        return ((double) a) / b;
     }
 
     public static void testStrings() {

@@ -1,12 +1,11 @@
 package com.company.list;
 
 class Node {
-    private Object data;
+    private final Object data;
     private Node next;
 
-    Node(Object data, Node next) {
+    Node(Object data) {
         this.data = data;
-        this.next = next;
     }
 
     Object getData() {
@@ -15,5 +14,9 @@ class Node {
 
     Node getNext() {
         return next;
+    }
+
+    void setNext(Node next) {
+        this.next = next;
     }
 }

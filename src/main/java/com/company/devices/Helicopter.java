@@ -8,8 +8,9 @@ public class Helicopter extends FlyingObjects {
         super(7.0);
         this.rotorCount = rotorCount;
     }
-    public String toString(){
-        return "rotor count: " +  rotorCount;
+
+    public String toString() {
+        return "rotor count: " + rotorCount;
     }
 
     public int getRotorCount() {

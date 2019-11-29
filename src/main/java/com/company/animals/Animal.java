@@ -2,6 +2,9 @@ package com.company.animals;
 
 public abstract class Animal {
 
+    public float mass;
+    private Brain brain;
+
     public Animal() {
 
     }
@@ -10,13 +13,9 @@ public abstract class Animal {
         this.mass = mass;
         this.brain = brain;
     }
-
     public Animal(float mass) {
         this.mass = mass;
     }
-
-    public float mass;
-    private Brain brain;
 
     public float getMass() {
         return mass;

@@ -1,16 +1,14 @@
 package com.company.animals;
 
-import com.company.animals.Animal;
-
 public final class Cat extends Animal {
+
+    public float mass;
 
     public Cat() {
         super(5);
         final int a = 7;
 
     }
-
-    public float mass;
 
     public void makeSound() {
         super.mass = 5;
