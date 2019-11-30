@@ -64,7 +64,7 @@ public class ListTest {
 
     @Test
     public void shouldDeleteOnly1InstanceWhenMultiplePresent() {
-        List a = new List();
+        List<String> a = new List<>();
         assertTrue(a.add("A"));
         assertTrue(a.add("A"));
         assertTrue(a.add("A"));

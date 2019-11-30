@@ -1,7 +1,7 @@
 package com.company;
 
-public interface Gettable {
-    Object get(int i);
+public interface Gettable<E> {
+    E get(int i);
 
     int getSize();
 }

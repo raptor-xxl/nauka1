@@ -1,7 +1,7 @@
 package com.company;
 
-public interface Deletable {
-    boolean delete(Object o);
+public interface Deletable<E> {
+    boolean delete(E o);
 
-    boolean deleteAll(Object o);
+    boolean deleteAll(E o);
 }

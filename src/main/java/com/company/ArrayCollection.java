@@ -1,16 +1,20 @@
 package com.company;
 
-public class ArrayCollection implements Collection, Mergable {
+import java.lang.reflect.Array;
+import java.util.Objects;
 
-    private Object[] data;
+public class ArrayCollection<E> implements Collection<E>, Mergable {
+
+    private E[] data;
     private int size = 0;
 
     public ArrayCollection() {
-        data = new Object[256];
+
+        data = (E[]) new Object[256];
     }
 
     @Override
-    public boolean add(Object o) {
+    public boolean add(E o) {
         if (o == null) {
             throw new IllegalArgumentException("Argument is null");
         }
@@ -21,7 +25,7 @@ public class ArrayCollection implements Collection, Mergable {
         return true;
     }
 
-    private int index(Object o) {
+    private int index(E o) {
         if (o == null) {
             return -1;
         }
@@ -35,7 +39,7 @@ public class ArrayCollection implements Collection, Mergable {
     }
 
     @Override
-    public boolean delete(Object o) {
+    public boolean delete(E o) {
         int c = index(o);
         if (c == -1) {
             return false;
@@ -48,7 +52,7 @@ public class ArrayCollection implements Collection, Mergable {
     }
 
     @Override
-    public boolean deleteAll(Object o) {
+    public boolean deleteAll(E o) {
         boolean deletedAny = false;
         while (delete(o)) {
             deletedAny = true;
@@ -57,8 +61,12 @@ public class ArrayCollection implements Collection, Mergable {
     }
 
     @Override
-    public boolean isPresent(Object o) {
+    public boolean isPresent(E o) {
         return index(o) != -1;
+    }
+
+    public <T> T fun(T a) {
+        return a;
     }
 
     @Override
@@ -83,7 +91,7 @@ public class ArrayCollection implements Collection, Mergable {
     }
 
     @Override
-    public Object get(int i) {
+    public E get(int i) {
         return data[i];
     }
 }

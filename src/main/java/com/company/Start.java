@@ -2,28 +2,31 @@ package com.company;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.*;
 import java.util.function.Function;
 
 public class Start {
     public static void main(String[] args) {
-        String fileName = "/home/logad/IdeaProjects/file.txt";
-        try (FileWriter fileWriter = new FileWriter(fileName, true)) {
-            fileWriter.write("Some String");
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
-/*
-        Double d = 5.0;
-        try {
+        ArrayCollection<Elem2> a = new ArrayCollection<>();
 
-            d = divide(2, 2);
-            System.out.println("Success");
-        } catch (Ex1 e) {
-            System.out.println("Ex1: " + e.getMessage());
-        } catch (Ex2 | Ex3 e) {
-            System.out.println("Ex2 or Ex3: " + e.getMessage());
-        }
-        System.out.println(d);*/
+        List<String> l1 = new ArrayList<>();
+        List<String> l2 = new LinkedList<>();
+        List<String> l3 = new Vector<>();
+
+        Set<Elem> s1 = new TreeSet<>();
+        Set<Elem> s2 = new HashSet<>();
+        Set<Elem> s3 = new LinkedHashSet<>();
+
+        TreeMap<Integer, Elem> m1 = new TreeMap<>();
+        Map<String, Elem> m2 = new HashMap<>();
+        Map<String, Elem> m3 = new LinkedHashMap<>();
+
+        m1.floorEntry(5);
+
+        //m1.put("A", new Elem("d", 6));
+        Elem e5 = m1.get("A");
+
+
     }
 
     public static double divide(int a, int b) throws Ex1, Ex2, Ex3 {

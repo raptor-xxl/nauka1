@@ -1,5 +1,5 @@
 package com.company;
 
-public interface Addable {
-    boolean add(Object o);
+public interface Addable<E> {
+    boolean add(E o);
 }

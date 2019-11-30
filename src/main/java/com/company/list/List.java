@@ -3,29 +3,28 @@ package com.company.list;
 import com.company.Collection;
 import com.company.Mergable;
 
-public class List implements Collection, Mergable {
+public class List<T> implements Collection<T>, Mergable<T> {
 
     private Node start = null;
-    private Node end = null;
     private int size = 0;
 
     @Override
-    public boolean isPresent(Object o) {
+    public boolean isPresent(T o) {
         return false;
     }
 
     @Override
-    public boolean add(Object o) {
+    public boolean add(T o) {
         return false;
     }
 
     @Override
-    public boolean delete(Object o) {
+    public boolean delete(T o) {
         return false;
     }
 
     @Override
-    public boolean deleteAll(Object o) {
+    public boolean deleteAll(T o) {
         return false;
     }
 
@@ -35,7 +34,7 @@ public class List implements Collection, Mergable {
     }
 
     @Override
-    public Object get(int i) {
+    public T get(int i) {
         return null;
     }
 
