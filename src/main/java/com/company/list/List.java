@@ -10,16 +10,27 @@ public class List<T> implements Collection<T>, Mergable<T> {
 
     @Override
     public boolean isPresent(T o) {
-        return false;
+        if (o == null) {
+
+            return false;
+        }
+        for (int i = 1; i < size; i++) {
+
+            if (equals(start)) {
+
+            }
+            return true;
+        }
+        return true;
     }
+
 
     @Override
     public boolean add(T o) {
-    /*    start = Node (i);
-        if (start == null) {
-    return setnext();
-        }*/
-        return false;
+        start = new Node<T>(o);
+        size ++;
+        return true;
+
     }
 
     @Override
@@ -44,6 +55,6 @@ public class List<T> implements Collection<T>, Mergable<T> {
 
     @Override
     public int getSize() {
-        return 0;
+        return size;
     }
 }

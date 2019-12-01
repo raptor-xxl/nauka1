@@ -1,20 +1,23 @@
 package com.company;
 
+import java.util.Objects;
+
 public class Elem {
-    private String s;
+    private String str;
     private int i;
 
-    public Elem(String s, int i) {
-        this.s = s;
+    public Elem(String str, int i) {
+        System.out.println("Konstruktor elema: " + str);
+        this.str = str;
         this.i = i;
     }
 
-    public String getS() {
-        return s;
+    public String getStr() {
+        return str;
     }
 
-    public void setS(String s) {
-        this.s = s;
+    public void setStr(String str) {
+        this.str = str;
     }
 
     public int getI() {
@@ -31,6 +34,12 @@ public class Elem {
             return false;
         }
         Elem a = (Elem) obj;
-        return i == a.i && (s == null && a.s == null || (s != null && s.equals(a.s)));
+        return i == a.i && (str == null && a.str == null || (str != null && str.equals(a.str)));
+    }
+
+    @Override
+    public int hashCode() {
+        int h1 = str.hashCode();
+        return Objects.hash(str, i);
     }
 }

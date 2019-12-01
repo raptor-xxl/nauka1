@@ -1,8 +1,5 @@
 package com.company;
 
-import java.lang.reflect.Array;
-import java.util.Objects;
-
 public class ArrayCollection<E> implements Collection<E>, Mergable<E> {
 
     private E[] data;
