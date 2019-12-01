@@ -1,22 +1,22 @@
 package com.company.list;
 
-class Node {
-    private final Object data;
-    private Node next;
+class Node<T> {
+    private final T data;
+    private Node<T> next;
 
-    Node(Object data) {
+    Node(T data) {
         this.data = data;
     }
 
-    Object getData() {
+    T getData() {
         return data;
     }
 
-    Node getNext() {
+    Node<T> getNext() {
         return next;
     }
 
-    void setNext(Node next) {
+    void setNext(Node<T> next) {
         this.next = next;
     }
 }

@@ -5,7 +5,7 @@ import com.company.Mergable;
 
 public class List<T> implements Collection<T>, Mergable<T> {
 
-    private Node start = null;
+    private Node<T> start = null;
     private int size = 0;
 
     @Override
@@ -33,7 +33,7 @@ public class List<T> implements Collection<T>, Mergable<T> {
     }
 
     @Override
-    public Mergable merge(Mergable m) {
+    public Mergable<T> merge(Mergable<T> m) {
         return null;
     }
 
