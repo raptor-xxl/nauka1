@@ -15,6 +15,10 @@ public class List<T> implements Collection<T>, Mergable<T> {
 
     @Override
     public boolean add(T o) {
+    /*    start = Node (i);
+        if (start == null) {
+    return setnext();
+        }*/
         return false;
     }
 
