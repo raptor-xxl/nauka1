@@ -3,7 +3,7 @@ package com.company;
 import java.lang.reflect.Array;
 import java.util.Objects;
 
-public class ArrayCollection<E> implements Collection<E>, Mergable {
+public class ArrayCollection<E> implements Collection<E>, Mergable<E> {
 
     private E[] data;
     private int size = 0;
@@ -70,12 +70,12 @@ public class ArrayCollection<E> implements Collection<E>, Mergable {
     }
 
     @Override
-    public Mergable merge(Mergable m) {
+    public Mergable<E> merge(Mergable<E> m) {
         if (m == null) {
             return this;
         }
 
-        ArrayCollection result = new ArrayCollection();
+        ArrayCollection<E> result = new ArrayCollection<>();
         result.size = this.size;
         System.arraycopy(this.data, 0, result.data, 0, this.size);
         for (int i = 0; i < m.getSize(); ++i) {
