@@ -14,12 +14,8 @@ public class List<T> implements Collection<T>, Mergable<T> {
 
             return false;
         }
-        for (int i = 1; i < size; i++) {
-
-            if (equals(start)) {
-
-            }
-            return true;
+        for (int i = 0; i < size; i++) {
+            if (o.equals(start)) return true;
         }
         return true;
     }
