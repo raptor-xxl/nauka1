@@ -26,6 +26,16 @@ public class ListTest {
     }
 
     @Test
+    public void shouldReturnTrueWhenEachPresent() {
+        List a = new List();
+        assertTrue(a.add("A"));
+        assertTrue(a.add("B"));
+        assertTrue(a.isPresent("A"));
+        assertTrue(a.isPresent("B"));
+        assertEquals(2, a.getSize());
+    }
+
+    @Test
     public void shouldHaveSize1WhenAdded1Element() {
         List a = new List();
         assertTrue(a.add("Str"));
