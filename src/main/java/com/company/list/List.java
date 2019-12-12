@@ -11,20 +11,26 @@ public class List<T> implements Collection<T>, Mergable<T> {
     @Override
     public boolean isPresent(T o) {
         if (o == null) {
-
             return false;
         }
         for (int i = 0; i < size; i++) {
-            if (o.equals(start)) return true;
+           ;
+            //if (o.equals(Node<T>()))
+                return true;
         }
-        return true;
+        return false;
     }
 
 
     @Override
     public boolean add(T o) {
+        if (o == null) {
+            throw new IllegalArgumentException("Is null");
+        }
+        Node<T> n = start;
         start = new Node<T>(o);
-        size ++;
+        start.setNext(n);
+        size++;
         return true;
 
     }
