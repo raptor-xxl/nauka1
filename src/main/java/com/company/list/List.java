@@ -2,6 +2,7 @@ package com.company.list;
 
 import com.company.Collection;
 import com.company.Mergable;
+import org.w3c.dom.CDATASection;
 
 public class List<T> implements Collection<T>, Mergable<T> {
 
@@ -14,9 +15,10 @@ public class List<T> implements Collection<T>, Mergable<T> {
             return false;
         }
         for (int i = 0; i < size; i++) {
-           ;
-            //if (o.equals(Node<T>()))
+
+            if (o.equals(start.getData)){
                 return true;
+            }
         }
         return false;
     }
