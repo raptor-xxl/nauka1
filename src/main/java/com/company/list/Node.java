@@ -2,7 +2,6 @@ package com.company.list;
 
 class Node<T> {
     private final T data;
-    public T getData;
     private Node<T> next;
 
     Node(T data) {

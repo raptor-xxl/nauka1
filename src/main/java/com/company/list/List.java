@@ -16,7 +16,7 @@ public class List<T> implements Collection<T>, Mergable<T> {
         }
         for (int i = 0; i < size; i++) {
 
-            if (o.equals(start.getData)){
+            if (o.equals(start.getNext())) {
                 return true;
             }
         }
